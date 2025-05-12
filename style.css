@@ -550,9 +550,8 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -52%); /* -52% 稍微上移，可依箭頭圖微調 */
-  width: 100%;
-  max-width: 100%;
+  transform: translate(-50%, -42%) scale(1.2); /* -42%微上移＋放大 */
+  width: 160vw;  /* 延展寬度以避免箭頭太小 */
   height: auto;
   pointer-events: none;
   z-index: 0;

@@ -538,6 +538,9 @@ body {
  .pentagon-bg-arrows{
   transform: translateY(207px);
   }
+ .pentagon-svg{
+  transform: translateY(300px);
+  }  
 }
 
 /* 👉 小手機再小一點 */
@@ -548,6 +551,9 @@ body {
   }
   .pentagon-bg-arrows{
   transform: translateY(207px);
+  }
+ .pentagon-svg{
+  transform: translateY(300px);
   }
 }
 

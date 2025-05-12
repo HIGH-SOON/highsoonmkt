@@ -535,9 +535,6 @@ body {
   padding: 35vw 5vw; /* ✅ 拉高上下間距 */
   transform: scale(1);
   }
- .pentagon-bg-arrows{
-  transform: translateY(100px);
-  }
 }
 
 /* 👉 小手機再小一點 */
@@ -546,16 +543,17 @@ body {
    padding: 35vw 5vw; /* ✅ 拉高上下間距 */
    transform: scale(1);
   }
-  .pentagon-bg-arrows{
-  transform: translateY(0px);
-  }
 }
+
 
 .pentagon-bg-arrows {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -52%); /* -52% 稍微上移，可依箭頭圖微調 */
   width: 100%;
+  max-width: 100%;
+  height: auto;
   pointer-events: none;
   z-index: 0;
 }

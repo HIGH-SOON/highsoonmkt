@@ -536,7 +536,7 @@ body {
   transform: scale(1.3);
   }
  .pentagon-bg-arrows{
-  transform: translateY(207px);
+  transform: translateY(500px);
   }
  .pentagon-svg{
   transform: translateY(100px);
@@ -550,7 +550,7 @@ body {
     transform: scale(1);
   }
   .pentagon-bg-arrows{
-  transform: translateY(207px);
+  transform: translateY(500px);
   }
  .pentagon-svg{
   transform: translateY(100px);

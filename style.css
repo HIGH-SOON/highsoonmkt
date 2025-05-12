@@ -532,7 +532,9 @@ body {
 /* 👉 手機縮小更多 */
 @media (max-width: 768px) {
   .pentagon-scaler {
-    transform: scale(1.3);
+  padding: 35vw 5vw; /* ✅ 拉高上下間距 */
+  transform: scale(1.3);
+
   }
 }
 

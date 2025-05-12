@@ -1,0 +1,1277 @@
+body {
+  margin: 0;
+  font-family: 'Inter', 'Noto Sans TC', sans-serif;
+  background-color: #fff;
+}
+
+.header {
+  height: 64px; /* 可調整 */
+  padding: 2vw 3vw;
+  position: relative;
+  z-index: 10;
+}
+
+.header-buttons {
+  position: absolute;
+  top: 2vw;
+  right: 3vw;
+  display: flex;
+  gap: 1.4vw; /*按鈕間距 */
+  z-index: 10;
+}
+
+.btn {
+  font-size: clamp(12px, 1.6vw, 16px);
+  padding: 0.2em 1em;/*文字框線間距 上下/左右 */
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1.4px solid; /*調整按鈕框線粗細 */
+  letter-spacing: 0.1em;  /*調整文字間距 */
+  transition: background 0.2s;
+}
+
+.btn.yellow {
+  color: #E1B947;
+  border-color: #E1B947;
+}
+
+.btn.yellow:hover {
+  background-color: #E1B947;
+  color: #fff;
+}
+
+.btn.green {
+  color: #3f9a91;
+  border-color: #3f9a91;
+}
+
+.btn.green:hover {
+  background-color: #3f9a91;
+  color: #fff;
+}
+
+.globe-wrapper { /* 智能圓球動畫 */
+  position: absolute;
+  top: -6vw; /* 球體高度位置 */
+  right: 0;
+  width: clamp(100px, 28vw, 360px); /* 可調整裁切寬度，讓只露一半 */
+  height: auto;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.globe-wrapper lottie-player {
+  width: 200%;  /* 球體大小 */
+  height: auto;
+  transform: translateX(0px); /* 球體位置 */
+  
+}
+
+.hero {
+  padding: 5vw;
+  padding top: -7vw;
+  position: relative;
+  text-align: left;
+}
+
+.hero-inner {
+  padding-top: 3vw; /* LOGO與HIGH-SOON間距 */
+  position: relative;
+  width: 100%;
+}
+
+.main-heading,
+.highlight-h,
+.highlight-s,
+.svg-eyes,
+.after-o,
+.line-2,
+.subtext {
+  position: relative;
+  z-index: 1;
+}
+
+.main-heading {
+  font-weight: 900;
+  font-size: clamp(48px, 8vw, 120px);
+  color: #000;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3vw;
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -2px;
+}
+
+.highlight-h {
+  color: #60B8B4;
+  font-size: clamp(72px, 12vw, 180px);
+  vertical-align: bottom;
+}
+
+.highlight-s {
+  color: #E1B947;
+  font-size: clamp(72px, 12vw, 180px);
+  vertical-align: baseline;
+  display: inline-block;
+  margin-right: -1.5vw; /*SO間距 */
+}
+
+.svg-eyes {
+  height: clamp(48px, 8vw, 120px);
+  width: auto;
+  vertical-align: baseline;
+  margin: 0 -2vw; /*ON間距 */
+  overflow: visible;
+}
+
+.after-o {
+  font-size: clamp(48px, 8vw, 120px); 
+  font-weight: 900;
+}
+
+
+.line-2 {
+  font-size: clamp(48px, 8vw, 120px);
+  color: #000;
+  font-weight: 900;
+  margin-top: -0.8vw;
+}
+
+.logo-bg-decor {  /* LOGO線路背景圖 */
+  position: absolute;
+  left: 5.5vw;
+  top: 0;
+  width: 52%;
+  z-index: 0; 
+  pointer-events: none;
+}
+
+.subtext {
+  position: absolute;
+  top: 150%; /* ⬅️ 根據畫面微調 */
+  left: 54vw; /* ⬅️ 控制左右靠近導線尾 */
+  transform: translateY(-50%);
+  font-size: clamp(16px, 2vw, 40px);
+  max-width: 24vw;
+  line-height: 1.6;
+  z-index: 1;
+}
+
+.highlight-line {
+  font-size: clamp(18px, 4vw, 28px);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #000;
+}
+
+.text-green {
+  color: #3f9a91;
+}
+
+
+.slogan-text {
+  font-size: clamp(14px, 2vw, 20px);
+  color: #000;
+  letter-spacing: 0.15em;
+  font-weight: 400;
+  margin-top: -6px; /* 行銷XAI 與下文上下間距 */
+}
+
+.video-section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin-top: 25vw; /* 調整與主視覺距離 */
+  z-index: 2;
+}
+
+.brand-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.card-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2vw;
+  padding: 12vw 5vw; /* 上下，左右 間距 */
+  background: #fff;
+}
+
+/* 卡片主容器：加動畫設定 */
+.card {
+  display: flex;               
+  flex-direction: column;  
+  text-align: left;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+/* 動畫方向控制 */
+.from-top {
+  transform: translateY(-40px);
+}
+.from-bottom {
+  transform: translateY(40px);
+}
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 圖片樣式 */
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 1vw;
+}
+
+/* 圖片在下時，避免文字與圖無距離 */
+.card.reverse img {
+  margin-bottom: 0;
+  margin-top: 1vw;
+}
+
+/* 內文包裝容器 */
+.card-content {
+  padding: 1.2vw 0;
+  width: 100%;             /* 更保險，讓區塊完整對齊 */
+  height: 150px; /* 高度調整） */
+  max-width: 85%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.5em;
+  box-sizing: border-box;  /* 避免 padding 影響寬度 */
+}
+
+/* 主標題 */
+.card-title {
+  font-size: clamp(28px, 2vw, 60px);
+  font-weight: 400;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  color: #333;
+}
+.card-title strong {
+  font-weight: 700;
+}
+
+/* 小文字 */
+.card-text {
+  font-size: clamp(18px, 1.6vw, 28px);
+  line-height: 1.6;
+  color: #6D6D6D;
+  margin: 0;
+}
+
+/* 主標與內文淡入動畫效果 */
+.card-title,
+.card-text {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s;
+}
+.card.show .card-title,
+.card.show .card-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 標題色塊小圖示 */
+.title-mark {
+  display: inline-block;
+  width: 6px;
+  height: 20px;
+  border-radius: 2px;
+}
+.title-mark.teal { background-color: #60B8B4; }
+.title-mark.gold { background-color: #E1B947; }
+.title-mark.dark { background-color: #60B8B4; }
+
+@media (min-width: 769px) {
+  .card.reverse {
+    flex-direction: column-reverse;
+  }
+}
+
+/* 核心服務區塊樣式 */
+.service-section {
+  background-color: #60B8B4;
+  color: #fff;
+  padding: 8vw 5vw 12vw;
+  text-align: center;
+  position: relative;
+  overflow: hidden; /* 防止 clip 超出 */
+}
+
+
+.service-title {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  margin-bottom: 5vw;
+}
+
+/* 卡片容器 */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 4vw 3vw;
+  max-width: 1080px;  /* ✅ 限制最多只能排三個 */
+  margin: 0 auto;
+}
+
+/* 單一卡片樣式 */
+.service-card {
+  border-radius: 16px;
+  padding: 2vw;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+/* 卡片進場動畫 */
+.service-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1.2vw;
+}
+
+/* 卡片內文字 */
+.service-text {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s;
+}
+
+.service-text h3 {
+  text-align: center;
+}
+
+.service-text p {
+  text-align: left;     /* 內文靠左 */
+  width: 100%;         
+}
+
+
+.service-card.show .service-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-name {
+  font-size: clamp(28px, 2vw, 60px);
+  font-weight: 550;
+  margin-bottom: 0.4em;
+  color: #fff;
+}
+
+.service-name::before {
+  content: "";
+  display: inline-block;
+  width: 20px;   /* 圓點大小可自行調整 */
+  height: 20px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-right: 0.2em; /* 縮小圓點與文字間距 */
+  vertical-align: middle;
+}
+
+
+.service-text p {
+  font-size: clamp(18px, 1.6vw, 28px);
+  font-weight: 300;
+  color: #fff;
+  margin: 0;
+}
+
+.curve-brand-section {
+  background-color: #60B8B4;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 弧形區塊 */
+.curve-bg {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+}
+
+.curve-bg svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 白底區塊 + 文字 */
+.brand-content {
+  background-color: #ffffff;
+  padding: 3vw 5vw 6vw 5vw;
+  margin-top: -15vw;
+}
+
+/* 標題與文字 */
+.brand-content h2 {
+  font-size: clamp(28px, 2vw, 60px);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #333333;
+}
+
+.brand-content p {
+  font-size: clamp(18px, 1.6vw, 28px);
+  margin-bottom: 8vw;;
+  color: #333333;
+}
+
+/* LOGO 區排版 */
+.brand-logos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  row-gap: 2rem;    /* 控制上下距離 */
+  justify-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: -3vw;
+}
+
+/* LOGO 動態效果 */
+.brand-logos img {
+  max-width: 140px;
+  width: 200px;
+  height: auto;
+  justify-self: center;
+  opacity: 0;
+  transform: translateY(40px);
+  filter: grayscale(100%);
+  transition: transform 0.6s ease, opacity 0.6s ease, filter 0.4s ease;
+}
+
+.brand-logos img.show {
+  opacity: 0.8;
+  transform: translateY(0);
+}
+
+.brand-logos img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/* 響應式 LOGO 排列 */
+@media (max-width: 1024px) {
+  .brand-logos {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-logos {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .brand-logos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pentagon-section {
+  position: relative;
+  background-color: #F6F6F6;
+  padding: 18vw 5vw;
+}
+
+.pentagon-wrapper {
+  background-color: #F6F6F6;
+  padding: 15vw 5vw;
+  text-align: center;
+  overflow: visible;          
+  contain: layout paint;      
+}
+
+.pentagon-scaler {
+  display: inline-block;
+  position: relative;
+  transform: scale(2); /* ✅ 縮放與位移 */
+  transform-origin: center center;
+  will-change: transform;     
+}
+
+/* 👉 平板以下縮小一點 */
+@media (max-width: 1024px) {
+  .pentagon-scaler {
+    transform: scale(1.7);
+  }
+}
+
+/* 👉 手機縮小更多 */
+@media (max-width: 768px) {
+  .pentagon-scaler {
+    transform: scale(1.3);
+  }
+}
+
+/* 👉 小手機再小一點 */
+@media (max-width: 480px) {
+  .pentagon-scaler {
+    transform: scale(1);
+  }
+}
+
+.pentagon-bg-arrows {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.pentagon-svg {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  overflow: visible;
+  height: auto;
+  display: block;
+  transform: translate(48px, 40px);
+}
+
+.label-zh {
+  fill: #BBBBBB;           /* 中文顏色 */
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.label-en {
+  fill: #FFFFFF;        
+  fill-opacity: 0.7;      /* 透明度 70% */
+  font-weight: bold;
+  font-family: "Inter", sans-serif;
+}
+
+/* label 動畫（svg） */
+.label-zh,
+.label-en,
+.label-bg {
+  transition: all 0.3s ease;
+}
+
+/* 五角-智能行銷 響應文字放大 */
+#bg-marketing.active {
+  fill: #000;
+  transition: all 0.3s ease;
+}
+
+.label-zh[data-id="area-marketing"].active {
+  fill: #25A9E7;
+  transform: translate(-30px, -30px);
+  font-size: 70px;
+  transition: all 0.3s ease;
+}
+
+.label-en[data-id="area-marketing"].active {
+  fill: #000;
+  transform: translate(-310px, 50px);
+  font-size: 150px;
+  fill-opacity: 1;   
+  transition: all 0.3s ease;
+}
+
+.label-zh[data-id="area-brand"].active {
+  fill: #77EBE6; /* 可以改成你品牌要用的主色 */
+  transform: translate(32px, -36px);
+  font-size: 70px;
+  transition: all 0.3s ease;
+}
+
+.label-en[data-id="area-brand"].active {
+  fill: #000;
+  transform: translate(110px, 50px);
+  font-size: 150px;
+  fill-opacity: 1;
+  transition: all 0.3s ease;
+}
+
+#bg-brand.active {
+  fill: #000;
+  transition: all 0.3s ease;
+}
+
+.label-zh[data-id="area-design"].active {
+  fill: #FFC726; /* 可以改成你品牌要用的主色 */
+  transform: translate(50px, 10px);
+  font-size: 70px;
+  transition: all 0.3s ease;
+}
+
+.label-en[data-id="area-design"].active {
+  fill: #000;
+  transform: translate(130px, 95px);
+  font-size: 150px;
+  fill-opacity: 1;
+  transition: all 0.3s ease;
+}
+
+#bg-design.active {
+  fill: #000;
+  transition: all 0.3s ease;
+}
+
+.label-zh[data-id="area-content"].active {
+  fill: #FF8418; /* 可以改成你品牌要用的主色 */
+  transform: translate(5px, 47px);
+  font-size: 70px;
+  transition: all 0.3s ease;
+}
+
+.label-en[data-id="area-content"].active {
+  fill: #000;
+  transform: translate(10px, 140px);
+  font-size: 150px;
+  fill-opacity: 1;
+  transition: all 0.3s ease;
+}
+
+#bg-content.active {
+  fill: #000;
+  transition: all 0.3s ease;
+}
+
+.label-zh[data-id="area-web"].active {
+  fill: #FF4C84; /* 可以改成你品牌要用的主色 */
+  transform: translate(-58px, 10px);
+  font-size: 70px;
+  transition: all 0.3s ease;
+}
+
+.label-en[data-id="area-web"].active {
+  fill: #000;
+  transform: translate(-45px, 95px);
+  font-size: 150px;
+  fill-opacity: 1;
+  transition: all 0.3s ease;
+}
+
+#bg-web.active {
+  fill: #000;
+  transition: all 0.3s ease;
+}
+
+/* 共用 info-box 動畫與樣式 */
+.info-box {
+  position: absolute;
+  transform-origin: top left;
+  background: none;
+  padding: 0;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s;
+}
+
+/* 顯示時動畫用 */
+.info-box.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* ✅ 各 info-box 區塊個別位置控制 */
+.info-box-marketing {
+  top: 15vw;
+  left: 10vw;
+}
+
+.info-box-brand {
+  top: 15vw;
+  left: 60vw;
+}
+
+.info-box-design {
+  top: 60vw;
+  left: 68vw;
+}
+
+.info-box-content {
+  top: 73vw;
+  left: 38vw;
+}
+
+.info-box-web {
+  top: 60vw;
+  left: 20vw;
+}
+
+.info-box.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+
+
+/* 主標題區塊 */
+
+.info-head {
+  margin-bottom: -8px; /* 控制下方 ∟ 與 tags 的間距 */
+  display: flex;
+  flex-direction: column;  /* 讓裡面直排 */
+  align-items: flex-start; /* ✅ 所有子項目靠左對齊 */
+}
+
+.info-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: -2px;
+}
+.info-title .bullet {
+  width: 5px;
+  height: 24px;
+  border-radius: 2px;
+}
+
+.info-title h3 {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.4;
+  text-align: left;        /* ✅ 保險設定文字靠左 */
+}
+
+.info-head P {
+  font-size: 18px;
+  font-weight: 400; 
+}  
+
+/* 副標題 */
+.subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: #000;
+  margin: 4px 0 16px 0;
+}
+
+/* 彎角線（∟）可以用裝飾線處理，可選 */
+.corner-line {
+  width: 20px;
+  height: 70px;
+  border-left: 1.5px solid #000;
+  border-bottom: 1.5px solid #000;
+  margin-bottom: 16px;
+}
+
+/* tag 排版樣式 */
+.info-tags {
+  display: grid;
+  gap: 8px 10px;
+  margin-left: 34px;  /* ✅ 往右移 */
+  margin-top: -60px;   /* ✅ 靠近 ∟ 彎角線底部 */
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tag .dot {
+  font-size: 14px;   /* ✅ 圓點大小一致 */
+  margin-right: 10px;
+  display: inline-block;           
+  transform: translateY(-6px);
+}
+
+/* marketing說明文字 */
+.info-tags-marketing {
+  display: flex;
+  gap: 0px;
+  margin-left: 34px;
+  margin-top: -55px;
+}
+
+.tag-col-left-marketing,
+.tag-col-right-marketing {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tag-col-left-marketing {
+  min-width: 130px; /* 行銷左欄寬度 */
+}
+
+.tag-col-right-marketing {
+  min-width: 250px; /* 行銷右欄寬度，可自由設 */
+}
+
+/* brand說明文字 */
+.info-tags-brand {
+  display: flex;
+  gap: 0px;
+  margin-left: 34px;
+  margin-top: -55px;
+}
+
+.tag-col-left-brand,
+.tag-col-right-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tag-col-left-brand {
+  min-width: 90px; /* 行銷左欄寬度 */
+}
+
+.tag-col-right-brand {
+  min-width: 130px; /* 行銷右欄寬度，可自由設 */
+}
+
+/* design說明文字 */
+.info-tags-design {
+  display: flex;
+  gap: 0px;
+  margin-left: 34px;
+  margin-top: -55px;
+}
+
+.tag-col-left-design,
+.tag-col-right-design {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tag-col-left-design {
+  min-width: 90px; /* 行銷左欄寬度 */
+}
+
+.tag-col-right-design {
+  min-width: 130px; /* 行銷右欄寬度，可自由設 */
+}
+
+/* content說明文字 */
+.info-tags-content {
+  display: flex;
+  gap: 0px;
+  margin-left: 34px;
+  margin-top: -55px;
+}
+
+.tag-col-left-content,
+.tag-col-right-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tag-col-left-content {
+  min-width: 90px; /* 行銷左欄寬度 */
+}
+
+.tag-col-right-content {
+  min-width: 130px; /* 行銷右欄寬度，可自由設 */
+}
+
+/* web說明文字 */
+.info-tags-web {
+  display: flex;
+  gap: 0px;
+  margin-left: 34px;
+  margin-top: -55px;
+}
+
+.tag-col-left-web,
+.tag-col-right-web {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tag-col-left-web {
+  min-width: 90px; /* 行銷左欄寬度 */
+}
+
+.tag-col-right-web {
+  min-width: 130px; /* 行銷右欄寬度，可自由設 */
+}
+
+
+
+@media (min-width: 1420px) {
+  .info-box-marketing { top: 18vw; left: 20vw; }
+  .info-box-brand     { top: 18vw; left: 60vw; }
+  .info-box-design    { top: 55vw; left: 65vw; }
+  .info-box-content   { top: 63vw; left: 45vw; }
+  .info-box-web       { top: 55vw; left: 20vw; }
+}
+
+@media (max-width: 1024px) {
+  .info-box-marketing { top: 10vw; left: 15vw; }
+  .info-box-brand     { top: 10vw; left: 60vw; }
+  .info-box-design    { top: 60vw; left: 68vw; }
+  .info-box-content   { top: 73vw; left: 40vw; }
+  .info-box-web       { top: 60vw; left: 10vw; }
+}
+
+@media (max-width: 768px) {
+  .info-box-marketing { top: 5vw; left: 13vw; }
+  .info-box-brand     { top: 5vw; left: 55vw; }
+  .info-box-design    { top: 85vw; left: 45vw; }
+  .info-box-content   { top: 86vw; left: 30vw; }
+  .info-box-web       { top: 85vw; left: 10vw; }
+}
+
+/* ⭕ 整體按鈕區塊設定 */
+.cta-section {
+  padding: 200px 0;
+  text-align: center;
+  background-color: #fff;
+}
+
+.circle-button-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  transform: scale(1.4);
+  transform-origin: center;
+}
+
+.circle-btn {
+  width: clamp(140px, 12vw, 200px);
+  height: clamp(140px, 12vw, 200px);
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  position: relative;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: clamp(28px, 2vw, 80px);
+  font-weight: bold;
+  font-family: "Noto Sans TC", sans-serif;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+/* 外圈（細框） */
+.circle-btn::before {
+  content: "";
+  position: absolute;
+  inset: clamp(1px, 2%, 4px); /* 控制邊距距離，隨螢幕變化 */
+  border: clamp(1px, 0.2vw, 2px) solid;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+/* 內圈（粗框） */
+.circle-btn::after {
+  content: "";
+  position: absolute;
+  inset: clamp(8px, 10%, 16px); /* 控制粗框距離按鈕中心的距離 */
+  border: clamp(15px, 1.5vw, 20px) solid;
+  opacity: 0.5;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.circle-btn:hover {
+  background-color: currentColor;
+  color: #fff;
+}
+
+.circle-btn:hover::before {
+  border-color: transparent;  /* 隱藏外圈細框 */
+  box-shadow: none;           /* 移除光暈效果（若原本有） */
+}
+
+
+.circle-btn::before,
+.circle-btn::after {
+  transition: all 0.3s ease;
+}
+
+/* ⭕ 中間文字樣式 */
+.circle-btn span {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  line-height: 1.2;
+  text-align: center;
+  transition: color 0.3s ease;
+  color: inherit;
+}
+
+/* ✅ 顏色組：免費諮詢（藍綠） */
+.circle-btn.consult {
+  color: #60B8B4;
+}
+.circle-btn.consult::before {
+  border-color: #60B8B4;
+}
+.circle-btn.consult::after {
+  border-color: #60B8B4;
+}
+.circle-btn.consult:hover {
+  background-color: #60B8B4;
+  color: #fff;
+}
+
+/* ✅ 顏色組：行銷健檢（黃色） */
+.circle-btn.checkup {
+  color: #F2B300;
+}
+.circle-btn.checkup::before {
+  border-color: #F2B300;
+}
+.circle-btn.checkup::after {
+  border-color: #F2B300;
+}
+.circle-btn.checkup:hover {
+  background-color: #F2B300;
+  color: #fff; /* ✅ 這一行必須加 */
+}
+
+/* 頁腳區塊背景與文字樣式 */
+.site-footer {
+  background-color: #60B8B4;
+  color: #fff;
+  padding: 80px 5vw;
+  font-family: "Noto Sans TC", sans-serif;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* 左側標題 */
+.footer-title {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 0;  /* 或 1.1、1.2 視需要微調 */
+}
+
+.footer-subtitle {
+  font-size: 23px;
+  font-weight: 300;
+  line-height: 1;  /* 或 1.1、1.2 視需要微調 */
+  opacity: 0.8;
+  
+}
+
+/* 裝飾元素 */
+.footer-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.bar {
+  width: 65px;
+  height: 8px;
+  background-color: #F2B300;
+  border-radius: 8px;
+}
+
+.dot-group {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.dot-1 {
+  background-color: #F2B300;
+}
+.dot-2 {
+  background-color: #FFEAAC;
+}
+
+/* 聯絡資訊 */
+.footer-info .info-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: 300;
+  font-size: 24px;
+  opacity: 0.8;
+}
+
+.footer-info img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  opacity: 0.8;
+}
+
+/* 分隔線與著作權 */
+.footer-line {
+  margin: 24px 0 12px;
+  border: none;
+  height: 1px;
+  background: #C3EFED;
+  opacity: 1;
+}
+
+.copyright {
+  font-size: 16px;
+  font-weight: 300;
+  color: #C3EFED;
+  opacity: 1;
+}
+
+/* 右側社群按鈕 */
+.footer-right {
+  display: flex;
+  gap: 24px;
+  transform: scale(1.5);
+  margin-top: 30px;
+  align-items: center;
+  padding: 0 40px
+}
+
+.footer-right img {
+  width: 32px;
+  height: 32px;
+  opacity: 0.8;
+  transition: transform 0.3s ease;
+}
+
+.footer-right img:hover {
+  transform: scale(1.1);
+}
+
+/* 響應式 */
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-left {
+    width: 100%;
+  }
+
+  .footer-right {
+    margin-top: 20px;
+  }
+}
+
+/* 🌐 固定右下的懸浮按鈕區塊 */
+.floating-buttons {
+  position: fixed;
+  right: 20px;
+  bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 999;
+}
+
+/* 🎯 按鈕通用樣式 */
+.float-btn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: none;
+  font-family: "Noto Sans TC", sans-serif;
+  font-weight: bold;
+  font-size: 16px;
+  color: #fff;
+  text-align: center;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-wrap: nowrap;
+}
+
+.float-btn:hover {
+  transform: scale(1.08);
+}
+
+/* 🎨 顏色設定 */
+.float-btn.yellow {
+  background-color: #F2B300;
+}
+
+.float-btn.teal {
+  background-color: #60B8B4;
+}
+
+.float-btn.white {
+  background-color: #fff;
+  padding: 12px;
+}
+
+/* ⬆️ SVG箭頭樣式（在白底按鈕中） */
+.float-btn.white svg {
+  width: 80px;
+  height: 80px;
+  display: block;
+}
+
+/* 📱 RWD：手機時按鈕略縮小 */
+@media (max-width: 768px) {
+  .float-btn {
+    width: 56px;
+    height: 56px;
+    font-size: 14px;
+  }
+
+}

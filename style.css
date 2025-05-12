@@ -535,6 +535,11 @@ body {
   padding: 35vw 5vw; /* ✅ 拉高上下間距 */
   transform: scale(1);
   }
+  .pentagon-bg-arrows {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -38%) scale(1.6); /* ⬅️ 精準
 }
 
 /* 👉 小手機再小一點 */
@@ -542,6 +547,9 @@ body {
   .pentagon-scaler {
    padding: 35vw 5vw; /* ✅ 拉高上下間距 */
    transform: scale(1);
+  }
+  .pentagon-bg-arrows {
+  transform: translate(-50%, -34%) scale(1.7); /* 微調高度+放大箭頭 */
   }
 }
 

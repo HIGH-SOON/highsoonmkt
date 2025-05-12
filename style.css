@@ -527,6 +527,10 @@ body {
   .pentagon-scaler {
     transform: scale(1.7);
   }
+ .pentagon-bg-arrows {
+   transform: translate(-50%, -40%) scale(1.3);
+   width: 130vw;
+  }
 }
 
 /* 👉 手機縮小更多 */
@@ -539,8 +543,9 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -38%) scale(1.6); /* ⬅️ 精準
-}
+  transform: translate(-50%, -38%) scale(1.2);
+  width: 140vw;
+  }
 
 /* 👉 小手機再小一點 */
 @media (max-width: 414px) {
@@ -549,18 +554,21 @@ body {
    transform: scale(1);
   }
   .pentagon-bg-arrows {
-  transform: translate(-50%, -34%) scale(1.7); /* 微調高度+放大箭頭 */
+  transform: translate(-50%, -36%) scale(1.1);
+  width: 120vw;
   }
 }
 
 
+/* 🔧 桌機預設 */
 .pentagon-bg-arrows {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -42%) scale(1.2); /* -42%微上移＋放大 */
-  width: 160vw;  /* 延展寬度以避免箭頭太小 */
+  transform: translate(-50%, -42%) scale(1.2);
+  width: 120vw;
   height: auto;
+  max-width: none;
   pointer-events: none;
   z-index: 0;
 }

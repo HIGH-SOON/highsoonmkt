@@ -534,7 +534,9 @@ body {
   .pentagon-scaler {
   padding: 35vw 5vw; /* ✅ 拉高上下間距 */
   transform: scale(1.3);
-
+  }
+ .pentagon-bg-arrows{
+  transform: translateY(207px);
   }
 }
 
@@ -543,6 +545,9 @@ body {
   .pentagon-scaler {
    padding: 35vw 5vw; /* ✅ 拉高上下間距 */
     transform: scale(1);
+  }
+  .pentagon-bg-arrows{
+  transform: translateY(207px);
   }
 }
 

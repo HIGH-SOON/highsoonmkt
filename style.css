@@ -541,6 +541,7 @@ body {
 /* 👉 小手機再小一點 */
 @media (max-width: 480px) {
   .pentagon-scaler {
+   padding: 35vw 5vw; /* ✅ 拉高上下間距 */
     transform: scale(1);
   }
 }

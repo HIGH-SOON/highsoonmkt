@@ -536,7 +536,7 @@ body {
   transform: scale(1);
   }
  .pentagon-bg-arrows{
-  transform: translateY(215px);
+  transform: translateY(100px);
   }
 }
 
@@ -546,7 +546,7 @@ body {
    padding: 35vw 5vw; /* ✅ 拉高上下間距 */
   }
   .pentagon-bg-arrows{
-  transform: translateY(120px);
+  transform: translateY(0px);
   }
 }
 

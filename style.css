@@ -544,6 +544,7 @@ body {
 @media (max-width: 414px) {
   .pentagon-scaler {
    padding: 35vw 5vw; /* ✅ 拉高上下間距 */
+   transform: scale(1);
   }
   .pentagon-bg-arrows{
   transform: translateY(0px);

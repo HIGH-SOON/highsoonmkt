@@ -108,38 +108,47 @@ body {
 
 .highlight-h {
   color: #60B8B4;
-  font-size: clamp(72px, 12vw, 180px);
+  font-size: clamp(60px, 12vw, 180px);
   vertical-align: bottom;
 }
 
+.highlight-igh{
+  font-size: clamp(36px, 8vw, 120px); 
+  font-weight: 900; 
+  letter-spacing: 0.05em; /* 或 px 單位，根據需求調整 */
+  margin-left: 1.3vw;
+  }
+
 .highlight-s {
   color: #E1B947;
-  font-size: clamp(72px, 12vw, 180px);
+  font-size: clamp(60px, 12vw, 180px);
   vertical-align: baseline;
   display: inline-block;
   margin-right: -1.5vw; /*SO間距 */
 }
 
 .svg-eyes {
-  height: clamp(48px, 8vw, 120px);
+  height: clamp(36px, 8vw, 120px);
   width: auto;
   vertical-align: baseline;
   margin: 0 -2vw; /*ON間距 */
   overflow: visible;
 }
 
-.after-o {
-  font-size: clamp(48px, 8vw, 120px); 
+.after-n {
+  font-size: clamp(36px, 8vw, 120px); 
   font-weight: 900;
 }
 
 
 .line-2 {
-  font-size: clamp(48px, 8vw, 120px);
+  font-size: clamp(32px, 8vw, 120px);
   color: #000;
   font-weight: 900;
   margin-top: -0.8vw;
 }
+
+
 
 .logo-bg-decor {  /* LOGO線路背景圖 */
   position: absolute;
@@ -153,12 +162,43 @@ body {
 .subtext {
   position: absolute;
   top: 150%; /* ⬅️ 根據畫面微調 */
-  left: 54vw; /* ⬅️ 控制左右靠近導線尾 */
+  left: 53vw; /* ⬅️ 控制左右靠近導線尾 */
   transform: translateY(-50%);
   font-size: clamp(16px, 2vw, 40px);
   max-width: 24vw;
   line-height: 1.6;
   z-index: 1;
+}
+@media (max-width: 768px) {
+  .logo-bg-decor {  /* LOGO線路背景圖 */
+      width: 50%;
+      top: 0%;
+  }
+}
+
+@media (max-width: 414px) {
+  .logo-bg-decor {  /* LOGO線路背景圖 */
+      width: 60%;
+      top: -5%;
+  }
+}
+
+/* 專注AI應用 響應式文字RED  */
+@media (max-width: 768px) {
+  .subtext {
+      left: 50vw; /* ⬅️ 控制左右靠近導線尾 */
+      max-width: 25vw;
+      top: 132%;
+  }
+}
+
+/* 專注AI應用 響應式文字RED  */
+@media (max-width: 414px) {
+  .subtext {
+      left: 13vw; /* ⬅️ 控制左右靠近導線尾 */
+      max-width: 200vw;
+      top: 150%;
+  }
 }
 
 .highlight-line {
@@ -444,7 +484,7 @@ body {
 
 .brand-content p {
   font-size: clamp(18px, 1.6vw, 28px);
-  margin-bottom: 8vw;;
+  margin-bottom: 8vw;
   color: #333333;
 }
 
@@ -522,6 +562,7 @@ body {
   will-change: transform;     
 }
 
+/*五角形本體響應式大小位置*/
 /* 👉 平板以下縮小一點 */
 @media (max-width: 1024px) {
   .pentagon-scaler {
@@ -532,11 +573,11 @@ body {
 /* 👉 手機縮小更多 */
 @media (max-width: 768px) {
   .pentagon-scaler {
-  padding: 35vw 5vw; /* ✅ 拉高上下間距 */
+  padding: 20vw 5vw; /* ✅ 拉高上下間距 */
   transform: scale(1);
   }
  .pentagon-bg-arrows{
-  transform: translateY(215px);
+  transform: translateY(90px);
   }
  .pentagon-svg{
   transform: translateY(300px);
@@ -546,10 +587,10 @@ body {
 /* 👉 小手機再小一點 */
 @media (max-width: 414px) {
   .pentagon-scaler {
-   padding: 35vw 5vw; /* ✅ 拉高上下間距 */
+   padding: 15vw 5vw; /* ✅ 拉高上下間距 */
   }
   .pentagon-bg-arrows{
-  transform: translateY(120px);
+  transform: translateY(50px);
   }
   .pentagon-svg{
   transform: translateY(300px);
@@ -724,14 +765,14 @@ body {
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
-/* ✅ 各 info-box 區塊個別位置控制 */
+/* ✅ 各 info-box 五角形說明文字區塊個別位置控制 */
 .info-box-marketing {
-  top: 15vw;
+  top: 10vw;
   left: 10vw;
 }
 
 .info-box-brand {
-  top: 15vw;
+  top: 10vw;
   left: 60vw;
 }
 
@@ -747,7 +788,7 @@ body {
 
 .info-box-web {
   top: 60vw;
-  left: 20vw;
+  left: 15vw;
 }
 
 .info-box.show {
@@ -949,7 +990,7 @@ body {
 }
 
 
-
+/* 五角形說明文字響應式RWD */
 @media (min-width: 1420px) {
   .info-box-marketing { top: 18vw; left: 20vw; }
   .info-box-brand     { top: 18vw; left: 60vw; }
@@ -959,19 +1000,32 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .info-box-marketing { top: 10vw; left: 15vw; }
-  .info-box-brand     { top: 10vw; left: 60vw; }
-  .info-box-design    { top: 60vw; left: 68vw; }
-  .info-box-content   { top: 73vw; left: 40vw; }
-  .info-box-web       { top: 60vw; left: 10vw; }
+  .info-box-marketing { top: 5vw; left: 15vw; }
+  .info-box-brand     { top: 5vw; left: 60vw; }
+  .info-box-design    { top: 75vw; left: 60vw; }
+  .info-box-content   { top: 80vw; left: 35vw; }
+  .info-box-web       { top: 75vw; left: 10vw; }
 }
 
 @media (max-width: 768px) {
-  .info-box-marketing { top: 5vw; left: 13vw; }
-  .info-box-brand     { top: 5vw; left: 55vw; }
-  .info-box-design    { top: 85vw; left: 45vw; }
-  .info-box-content   { top: 86vw; left: 30vw; }
-  .info-box-web       { top: 85vw; left: 10vw; }
+  .info-box-marketing { top: 20vw; left: 13vw; }
+  .info-box-brand     { top: 20vw; left: 55vw; }
+  .info-box-design    { top: 110vw; left: 45vw; }
+  .info-box-content   { top:115vw; left: 30vw; }
+  .info-box-web       { top: 110vw; left: 10vw; }
+}
+
+@media (max-width: 414px) {
+  .info-box-marketing { top: 15vw; left: 10vw; }
+  .info-box-brand     { top: 15vw; left: 50vw; }
+  .info-box-design    { top: 115vw; left: 40vw; }
+  .info-box-content   { top:115vw; left: 30vw; }
+  .info-box-web       { top: 115vw; left: 10vw; }
+
+  .info-box {
+    transform: scale(0.7) !important;  
+    width:100%
+  }
 }
 
 /* ⭕ 整體按鈕區塊設定 */
@@ -1089,6 +1143,19 @@ body {
   background-color: #F2B300;
   color: #fff; /* ✅ 這一行必須加 */
 }
+
+/* 行銷健檢與免費諮詢按鈕大小與間距響應式RWD */
+@media (max-width: 414px) {
+  .circle-button-group {
+    transform: scale(1.1); /* 按鈕大小 */
+    gap:12px; /* 按鈕間距 48px */
+  }
+
+  .cta-section {
+    padding: 100px 0;
+  }
+}
+
 
 /* 頁腳區塊背景與文字樣式 */
 .site-footer {
@@ -1288,4 +1355,10 @@ body {
     font-size: 14px;
   }
 
+}
+
+/* 按鈕連結樣式 */
+a.circle-btn,
+a.float-btn {
+  text-decoration: none;
 }
